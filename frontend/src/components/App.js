@@ -28,33 +28,33 @@ function App() {
   const [cards, setCards] = useState([]);
   const [removingCard, setRemovingCard] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const [isInfoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [isSuccess, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    api
+    if (loggedIn) {api
       .getInfoUser()
       .then((data) => {
         setCurrentUser(data);
       })
       .catch((err) => {
         console.log(err);
-      });
-  }, []);
+      });}
+  }, [loggedIn]);
 
   useEffect(() => {
-    api
+    if (loggedIn) {api
       .getAllCards(cards)
       .then((data) => {
         setCards(data);
       })
       .catch((err) => {
         console.log(err);
-      });
-  }, []);
+      });}
+  }, [loggedIn]);
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
@@ -78,10 +78,11 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
+        console.log(newCard);
         setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
       })
       .catch((err) => {
@@ -172,7 +173,7 @@ function App() {
         if (data) {
           setSuccess(true);
           openSuccessNotifications();
-          navigate("/sign-in", { replace: true });
+          navigate("/signin", { replace: true });
         }
       })
       .catch((err) => {
@@ -206,7 +207,7 @@ function App() {
       .getContent(token)
       .then((data) => {
         if (data) {
-          setUserData(data.data.email);
+          setUserData(data.email);
           setLoggedIn(true);
           navigate("/my-profile", { replace: true });
         } else {
@@ -215,7 +216,6 @@ function App() {
       })
       .catch((err) => {
         setLoggedIn(false);
-        console.log(111111111);
         console.log(err);
       });
   }
@@ -236,7 +236,7 @@ function App() {
           <Route
             path="/"
             element={
-              loggedIn ? <Navigate to="/my-profile" replace /> : <Navigate to="/sign-in" replace />
+              loggedIn ? <Navigate to="/my-profile" replace /> : <Navigate to="/signin" replace />
             }
           />
           <Route
@@ -289,7 +289,7 @@ function App() {
             }
           />
           <Route
-            path="/sign-in"
+            path="/signin"
             element={
               <>
                 <Login handleLogin={handleLogin} />
@@ -302,7 +302,7 @@ function App() {
             }
           />
           <Route
-            path="/sign-up"
+            path="/signup"
             element={
               <>
                 <Register handleRegister={handleRegister} />

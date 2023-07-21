@@ -1,10 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
 const error = require('./middlewares/error');
 
-const { PORT = 3000 } = process.env;
+const app = express();
+
+app.use(cors({ origin: 'http://localhost:3000' }));
+
+const { PORT = 4000 } = process.env;
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
   autoIndex: true,
@@ -12,7 +17,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   console.log('connected to db');
 });
 
-const app = express();
 app.use(express.json());
 app.use(router);
 app.use(errors());

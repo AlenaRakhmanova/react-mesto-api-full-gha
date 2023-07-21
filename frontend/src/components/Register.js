@@ -59,7 +59,7 @@ function Register({ handleRegister }) {
         </button>
         <span className="auth__question">
           Уже зарегистрированы?
-          <Link className="opacity-hover" to="/sign-in">
+          <Link className="opacity-hover" to="/signin">
             {" "}
             Войти
           </Link>

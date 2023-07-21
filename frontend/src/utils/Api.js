@@ -87,10 +87,12 @@ export class Api {
   }
 }
 
+const token = localStorage.getItem("token");
+
 export const dataApi = {
-  url: "https://mesto.nomoreparties.co/v1/cohort-63",
+  url: "http://localhost:4000",
   headers: {
-    authorization: "3a824396-4a26-49de-be67-e18c68326ddb",
+    Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
   },
 };

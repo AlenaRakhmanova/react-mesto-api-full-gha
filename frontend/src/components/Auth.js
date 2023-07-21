@@ -42,7 +42,7 @@ export class Auth {
 }
 
 export const dataAuth = {
-  url: "https://auth.nomoreparties.co",
+  url: "http://localhost:4000",
   headers: {
     "Content-Type": "application/json",
   },
