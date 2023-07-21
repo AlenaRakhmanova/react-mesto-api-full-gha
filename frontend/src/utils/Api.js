@@ -90,7 +90,7 @@ export class Api {
 const token = localStorage.getItem("token");
 
 export const dataApi = {
-  url: "http://localhost:4000",
+  url: "http://av-rakhmanova.nomoredomains.xyz",
   headers: {
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",

@@ -42,7 +42,7 @@ export class Auth {
 }
 
 export const dataAuth = {
-  url: "http://localhost:4000",
+  url: "http://av-rakhmanova.nomoredomains.xyz",
   headers: {
     "Content-Type": "application/json",
   },

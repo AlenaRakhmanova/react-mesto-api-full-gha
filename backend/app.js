@@ -7,7 +7,7 @@ const error = require('./middlewares/error');
 
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: ['http://localhost:3000', 'http://av-rakhmanova.nomoredomains.xyz', 'https://av-rakhmanova.nomoredomains.xyz'] }));
 
 const { PORT = 4000 } = process.env;
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
@@ -18,7 +18,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 });
 
 app.use(express.json());
-app.use(router);
+app.use('/api', router);
 app.use(errors());
 app.use(error);
 
