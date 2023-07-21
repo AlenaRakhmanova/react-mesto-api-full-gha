@@ -1,0 +1,10 @@
+.auth__form {
+  width: 100%;
+  margin-top: 50px;
+}
+
+@media all and (max-width: 550px) {
+  .auth__form {
+    margin-top: 70px;
+  }
+}

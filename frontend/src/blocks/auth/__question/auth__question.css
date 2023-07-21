@@ -1,0 +1,10 @@
+.auth__question {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  /* color: #fff; */
+  /* text-decoration: none; */
+}

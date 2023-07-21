@@ -1,0 +1,26 @@
+.auth {
+  margin: 20px auto 0;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  color: white;
+  max-width: 430px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  background-color: black;
+  position: relative;
+  padding: 0 36px 0;
+  align-self: center;
+  /* min-height: 100%; */
+  /* max-height: calc(100vh - 80px);
+  height: 100%; */
+  flex-grow: 1;
+}
+
+@media all and (max-width: 550px) {
+  .auth {
+    max-width: 282px;
+    padding: 22px;
+  }
+}

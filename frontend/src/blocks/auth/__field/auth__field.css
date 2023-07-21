@@ -1,0 +1,28 @@
+.auth__field {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 27px;
+  border: 0;
+  border-bottom: 2px solid #ccc;
+  outline-style: none;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  color: white;
+}
+
+/* .popup__field:last-of-type {
+  margin-bottom: 48px;
+} */
+
+/* .popup__field:first-child {
+  margin-top: 0;
+} */
+
+.auth__field:focus {
+  border-bottom: 1px solid white;
+}
+
+.auth__field::placeholder {
+  color: #c4c4c4;
+}
