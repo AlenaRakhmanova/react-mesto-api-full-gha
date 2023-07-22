@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors({ origin: ['http://localhost:3000', 'http://av-rakhmanova.nomoredomains.xyz', 'https://av-rakhmanova.nomoredomains.xyz'] }));
 
-const { PORT = 4000 } = process.env;
+const { PORT = 3000 } = process.env;
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
   autoIndex: true,
