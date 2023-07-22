@@ -9,6 +9,11 @@ const auth = require('../middlewares/auth');
 // router.get('*', (req, res) => {
 //   res.status(404).send({ message: 'NotFoundError' });
 // });
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 router.use('/', signinRouter);
 router.use('/', signupRouter);
 router.use(auth);
