@@ -11,7 +11,9 @@ export class Api {
     return Promise.reject(`Ошибка: ${response.status}`);
   }
 
-  getInfoUser() {
+  getInfoUser(token) {
+    let headers = this._headers
+    headers.Authorization = `Bearer ${token}`;
     const currentUrl = `${this._url}/users/me`;
     return fetch(currentUrl, {
       method: "GET",
@@ -19,7 +21,9 @@ export class Api {
     }).then((response) => this._checkError(response));
   }
 
-  getAllCards() {
+  getAllCards(token) {
+    let headers = this._headers
+    headers.Authorization = `Bearer ${token}`;
     const currentUrl = `${this._url}/cards`;
     return fetch(currentUrl, {
       method: "GET",
@@ -90,7 +94,7 @@ export class Api {
 const token = localStorage.getItem("token");
 
 export const dataApi = {
-  url: "http://av-rakhmanova.nomoredomains.xyz",
+  url: "http://av-rakhmanova.nomoredomains.xyz/api",
   headers: {
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",

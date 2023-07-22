@@ -34,9 +34,24 @@ function App() {
   const [isSuccess, setSuccess] = useState(false);
   const navigate = useNavigate();
 
+
+  // useEffect(() => {
+  //   Promise.all([api.getInfoUser(), api.getAllCards()])
+  //   .then((userData, cardData) => {
+  //     console.log(userData)
+  //     console.log(cardData)
+  //     setCurrentUser(userData);
+  //     setCards(cardData);
+  //   }).catch((err) => {
+  //     console.log(err);
+  //   });
+  // }, [])
+
+
   useEffect(() => {
+    const token = localStorage.getItem("token");
     if (loggedIn) {api
-      .getInfoUser()
+      .getInfoUser(token)
       .then((data) => {
         setCurrentUser(data);
       })
@@ -46,8 +61,9 @@ function App() {
   }, [loggedIn]);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
     if (loggedIn) {api
-      .getAllCards(cards)
+      .getAllCards(token)
       .then((data) => {
         setCards(data);
       })

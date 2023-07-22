@@ -42,7 +42,7 @@ export class Auth {
 }
 
 export const dataAuth = {
-  url: "http://av-rakhmanova.nomoredomains.xyz",
+  url: "http://av-rakhmanova.nomoredomains.xyz/api",
   headers: {
     "Content-Type": "application/json",
   },
